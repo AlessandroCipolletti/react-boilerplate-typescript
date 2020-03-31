@@ -7,14 +7,14 @@
  *
  */
 
-import * as React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { hot } from 'react-hot-loader/root';
+import * as React from 'react'
+import { Switch, Route } from 'react-router-dom'
+import { hot } from 'react-hot-loader/root'
 
-import HomePage from 'containers/HomePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import HomePage from 'containers/HomePage/Loadable'
+import NotFoundPage from 'containers/NotFoundPage/Loadable'
 
-import GlobalStyle from '../../global-styles';
+import GlobalStyle from 'utils/global-styles'
 function App() {
   return (
     <div>
@@ -24,6 +24,6 @@ function App() {
       </Switch>
       <GlobalStyle />
     </div>
-  );
+  )
 }
-export default hot(App);
+export default hot(App)

@@ -1,11 +1,11 @@
-import * as styledComponents from 'styled-components';
+import * as styledComponents from 'styled-components'
 
 // theme.ts
 // your theme variables
 export interface IThemeInterface {
-  primary: string;
-  componentBackground: string;
-  componentBackgroundSecondary: string;
+  primary: string
+  componentBackground: string
+  componentBackgroundSecondary: string
 }
 
 export const theme = {
@@ -14,7 +14,7 @@ export const theme = {
     componentBackground: '#fff',
     componentBackgroundSecondary: '#fff',
   },
-};
+}
 const {
   default: styled,
   css,
@@ -23,7 +23,7 @@ const {
   ThemeProvider,
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<
   IThemeInterface
->;
+>
 
-export { css, createGlobalStyle, keyframes, ThemeProvider };
-export default styled;
+export { css, createGlobalStyle, keyframes, ThemeProvider }
+export default styled

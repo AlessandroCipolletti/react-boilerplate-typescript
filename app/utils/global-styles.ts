@@ -1,11 +1,11 @@
-import { createGlobalStyle } from 'styles/styled-components';
+import { createGlobalStyle } from 'utils/styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html,
   body {
     height: 100%;
     width: 100%;
-    line-height: 1.5;
+    margin: 0px;
   }
 
   body {
@@ -32,6 +32,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: inherit;
     font-size: inherit;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

@@ -8,4 +8,4 @@ exports[`<NotFound /> should render and match the snapshot 1`] = `
     </span>
   </h1>
 </article>
-`;
+`

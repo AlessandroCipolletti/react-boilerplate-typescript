@@ -2,10 +2,10 @@
  * Testing the NotFoundPage
  */
 
-import React from 'react';
-import { render } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
-import NotFound from '..';
+import React from 'react'
+import { render } from '@testing-library/react'
+import { IntlProvider } from 'react-intl'
+import NotFound from '..'
 
 describe('<NotFound />', () => {
   it('should render and match the snapshot', () => {
@@ -15,7 +15,7 @@ describe('<NotFound />', () => {
       <IntlProvider locale="en">
         <NotFound />
       </IntlProvider>,
-    );
-    expect(firstChild).toMatchSnapshot();
-  });
-});
+    )
+    expect(firstChild).toMatchSnapshot()
+  })
+})

@@ -2,16 +2,16 @@
  * DEVELOPMENT WEBPACK CONFIGURATION
  */
 
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CircularDependencyPlugin = require('circular-dependency-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
 
 const createStyledComponentsTransformer = require('typescript-plugin-styled-components')
-  .default;
+  .default
 
-const styledComponentsTransformer = createStyledComponentsTransformer();
-const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
+const styledComponentsTransformer = createStyledComponentsTransformer()
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
 module.exports = require('./webpack.base.babel')({
   mode: 'development',
@@ -70,4 +70,4 @@ module.exports = require('./webpack.base.babel')({
   performance: {
     hints: false,
   },
-});
+})

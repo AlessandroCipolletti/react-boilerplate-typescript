@@ -1,19 +1,45 @@
 module.exports = {
   preset: 'ts-jest/presets/js-with-babel',
   collectCoverageFrom: [
-    'app/**/*.{js,jsx,ts,tsx}',
+    '!app/common/utils/images.js',
     '!app/**/*.test.{js,jsx,ts,tsx}',
     '!app/*/RbGenerated*/*.{js,jsx,ts,tsx}',
     '!app/app.tsx',
     '!app/global-styles.ts',
     '!app/*/*/Loadable.{js,jsx,ts,tsx}',
+    '!app/utils/reducers.ts',
+    '!app/utils/redux-injectors.tsx',
+
+    'app/**/reducers/*.{js,jsx,ts,tsx}',
+    'app/**/actions/*.{js,jsx,ts,tsx}',
+    'app/**/selectors/*.{js,jsx,ts,tsx}',
+    'app/**/setters/*.{js,jsx,ts,tsx}',
+    'app/**/hooks/*.{js,jsx,ts,tsx}',
+    'app/**/utils/*.{js,jsx,ts,tsx}',
+    'app/**/sagas/*.{js,jsx,ts,tsx}',
+
+    '!app/**/reducers/index.{js,jsx,ts,tsx}',
+    '!app/**/actions/index.{js,jsx,ts,tsx}',
+    '!app/**/selectors/index.{js,jsx,ts,tsx}',
+    '!app/**/setters/index.{js,jsx,ts,tsx}',
+    '!app/**/hooks/index.{js,jsx,ts,tsx}',
+    '!app/**/utils/index.{js,jsx,ts,tsx}',
+    '!app/**/sagas/index.{js,jsx,ts,tsx}',
+
+    'app/**/actions.{js,jsx,ts,tsx}',
+    'app/**/reducer.{js,jsx,ts,tsx}',
+    'app/**/selectors.{js,jsx,ts,tsx}',
+    'app/**/setters.{js,jsx,ts,tsx}',
+    'app/**/hooks.{js,jsx,ts,tsx}',
+    'app/**/utils.{js,jsx,ts,tsx}',
+    'app/**/saga.{js,jsx,ts,tsx}',
   ],
   coverageThreshold: {
     global: {
-      statements: 98,
-      branches: 91,
-      functions: 98,
-      lines: 98,
+      statements: 90,
+      branches: 90,
+      functions: 90,
+      lines: 90,
     },
   },
   moduleFileExtensions: ['ts', 'tsx', 'js'],
@@ -24,9 +50,10 @@ module.exports = {
   },
   moduleDirectories: ['node_modules', 'app'],
   moduleNameMapper: {
-    '.*\\.(css|less|styl|scss|sass)$': '<rootDir>/internals/mocks/cssModule.js',
+    '.*\\.(css|less|styl|scss|sass)$':
+      '<rootDir>/internals/mocks/cssModule.{js,jsx,ts,tsx}',
     '.*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/internals/mocks/image.js',
+      '<rootDir>/internals/mocks/image.{js,jsx,ts,tsx}',
   },
   setupFilesAfterEnv: [
     '<rootDir>/internals/testing/test-bundler.js',
@@ -41,4 +68,4 @@ module.exports = {
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
   ],
-};
+}

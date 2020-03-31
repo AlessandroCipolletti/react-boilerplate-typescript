@@ -6,7 +6,7 @@ To be able to type styled components you must import from `styles/styled-compone
 
 ## CSS modules
 
-CSS modules with typescript require slightly more work than regular CSS. Details are here: https://medium.com/@sapegin/css-modules-with-typescript-and-webpack-6b221ebe5f10. TL;DR version, if you want to use CSS modules, in internals/webpack/webpack.base.babel.js:L47 replace
+CSS modules with typescript require slightly more work than regular CSS. Details are here: https://medium.com/@sapegin/css-modules-with-typescript-and-webpack-6b221ebe5f10. TLDR version, if you want to use CSS modules, in internals/webpack/webpack.base.babel.js:L47 replace
 
         use: ['style-loader', 'css-loader'],
 

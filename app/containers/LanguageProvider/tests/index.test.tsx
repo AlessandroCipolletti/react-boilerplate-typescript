@@ -1,13 +1,13 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { FormattedMessage, defineMessages } from 'react-intl';
-import { Provider } from 'react-redux';
+import React from 'react'
+import { render } from '@testing-library/react'
+import { FormattedMessage, defineMessages } from 'react-intl'
+import { Provider } from 'react-redux'
 
-import LanguageProvider from '../index';
-import configureStore from '../../../configureStore';
+import LanguageProvider from '../index'
+import configureStore from 'utils/configureStore'
 
-import { translationMessages } from '../../../i18n';
-import history from '../../../utils/history';
+import { translationMessages } from 'utils/i18n'
+import history from 'utils/history'
 
 const messages = defineMessages({
   someMessage: {
@@ -15,25 +15,25 @@ const messages = defineMessages({
     defaultMessage: 'This is some default message',
     en: 'This is some en message',
   },
-});
+})
 
 describe('<LanguageProvider />', () => {
-  let store;
+  let store
 
   beforeEach(() => {
-    store = configureStore({}, history);
-  });
+    store = configureStore({}, history)
+  })
 
   it('should render its children', () => {
-    const text = 'Test';
-    const children = <h1>{text}</h1>;
+    const text = 'Test'
+    const children = <h1>{text}</h1>
     const { queryByText } = render(
       <Provider store={store}>
         <LanguageProvider messages={messages}>{children}</LanguageProvider>
       </Provider>,
-    );
-    expect(queryByText(text)).toBeInTheDocument();
-  });
+    )
+    expect(queryByText(text)).toBeInTheDocument()
+  })
 
   it('should render the default language messages', () => {
     const { queryByText } = render(
@@ -42,9 +42,7 @@ describe('<LanguageProvider />', () => {
           <FormattedMessage {...messages.someMessage} />
         </LanguageProvider>
       </Provider>,
-    );
-    expect(
-      queryByText(messages.someMessage.defaultMessage),
-    ).toBeInTheDocument();
-  });
-});
+    )
+    expect(queryByText(messages.someMessage.defaultMessage)).toBeInTheDocument()
+  })
+})

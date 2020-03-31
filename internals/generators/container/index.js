@@ -2,7 +2,7 @@
  * Container Generator
  */
 
-const componentExists = require('../utils/componentExists');
+const componentExists = require('../utils/componentExists')
 
 module.exports = {
   description: 'Add a container component',
@@ -16,10 +16,10 @@ module.exports = {
         if (/.+/.test(value)) {
           return componentExists(value)
             ? 'A component or container with this name already exists'
-            : true;
+            : true
         }
 
-        return 'The name is required';
+        return 'The name is required'
       },
     },
     {
@@ -75,7 +75,7 @@ module.exports = {
         templateFile: './container/index.tsx.hbs',
         abortOnFail: true,
       },
-    ];
+    ]
 
     // If component wants tests
     if (data.wantTests) {
@@ -84,7 +84,7 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/tests/index.test.tsx',
         templateFile: './container/test.tsx.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     // If component wants messages
@@ -94,7 +94,7 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/messages.ts',
         templateFile: './container/messages.ts.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     // If they want actions and a reducer, generate actions.ts, constants.ts,
@@ -106,13 +106,13 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/actions.ts',
         templateFile: './container/actions.ts.hbs',
         abortOnFail: true,
-      });
+      })
       actions.push({
         type: 'add',
         path: '../../app/containers/{{properCase name}}/tests/actions.test.ts',
         templateFile: './container/actions.test.ts.hbs',
         abortOnFail: true,
-      });
+      })
 
       // Constants
       actions.push({
@@ -120,7 +120,7 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/constants.ts',
         templateFile: './container/constants.ts.hbs',
         abortOnFail: true,
-      });
+      })
 
       // Selectors
       actions.push({
@@ -128,14 +128,14 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/selectors.ts',
         templateFile: './container/selectors.ts.hbs',
         abortOnFail: true,
-      });
+      })
       actions.push({
         type: 'add',
         path:
           '../../app/containers/{{properCase name}}/tests/selectors.test.ts',
         templateFile: './container/selectors.test.ts.hbs',
         abortOnFail: true,
-      });
+      })
 
       // Reducer
       actions.push({
@@ -143,13 +143,13 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/reducer.ts',
         templateFile: './container/reducer.ts.hbs',
         abortOnFail: true,
-      });
+      })
       actions.push({
         type: 'add',
         path: '../../app/containers/{{properCase name}}/tests/reducer.test.ts',
         templateFile: './container/reducer.test.ts.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     // Sagas
@@ -159,13 +159,13 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/saga.ts',
         templateFile: './container/saga.ts.hbs',
         abortOnFail: true,
-      });
+      })
       actions.push({
         type: 'add',
         path: '../../app/containers/{{properCase name}}/tests/saga.test.ts',
         templateFile: './container/saga.test.ts.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     if (data.wantLoadable) {
@@ -174,7 +174,7 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/Loadable.ts',
         templateFile: './component/loadable.ts.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     if (data.wantTypes || data.wantActionsAndReducer) {
@@ -183,28 +183,28 @@ module.exports = {
         path: '../../app/containers/{{properCase name}}/types.ts',
         templateFile: './container/types.ts.hbs',
         abortOnFail: true,
-      });
+      })
       actions.push({
         type: 'modify',
         path: '../../app/types/index.ts',
         pattern: new RegExp(/.*\/\/.*\[IMPORT NEW CONTAINERSTATE ABOVE\].+\n/),
         templateFile: './container/importContainerState.hbs',
         abortOnFail: true,
-      });
+      })
       actions.push({
         type: 'modify',
         path: '../../app/types/index.ts',
         pattern: new RegExp(/.*\/\/.*\[INSERT NEW REDUCER KEY ABOVE\].+\n/),
         templateFile: './container/appendApplicationRootState.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     actions.push({
       type: 'prettify',
       path: '/containers/',
-    });
+    })
 
-    return actions;
+    return actions
   },
-};
+}

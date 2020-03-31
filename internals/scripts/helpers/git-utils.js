@@ -1,5 +1,5 @@
-const { exec } = require('child_process');
-const shell = require('shelljs');
+const { exec } = require('child_process')
+const shell = require('shelljs')
 
 /**
  * Initialize a new Git repository
@@ -9,12 +9,12 @@ function initGitRepository() {
   return new Promise((resolve, reject) => {
     exec('git init', (err, stdout) => {
       if (err) {
-        reject(new Error(err));
+        reject(new Error(err))
       } else {
-        resolve(stdout);
+        resolve(stdout)
       }
-    });
-  });
+    })
+  })
 }
 
 /**
@@ -25,12 +25,12 @@ function addToGitRepository() {
   return new Promise((resolve, reject) => {
     exec('git add .', (err, stdout) => {
       if (err) {
-        reject(new Error(err));
+        reject(new Error(err))
       } else {
-        resolve(stdout);
+        resolve(stdout)
       }
-    });
-  });
+    })
+  })
 }
 
 /**
@@ -41,12 +41,12 @@ function commitToGitRepository() {
   return new Promise((resolve, reject) => {
     exec('git commit -m "Initial commit"', (err, stdout) => {
       if (err) {
-        reject(new Error(err));
+        reject(new Error(err))
       } else {
-        resolve(stdout);
+        resolve(stdout)
       }
-    });
-  });
+    })
+  })
 }
 
 /**
@@ -57,15 +57,15 @@ function hasGitRepository() {
   return new Promise((resolve, reject) => {
     exec('git status', (err, stdout) => {
       if (err) {
-        reject(new Error(err));
+        reject(new Error(err))
       }
 
-      const regex = new RegExp(/fatal:\s+Not\s+a\s+git\s+repository/, 'i');
+      const regex = new RegExp(/fatal:\s+Not\s+a\s+git\s+repository/, 'i')
 
       /* eslint-disable-next-line no-unused-expressions */
-      regex.test(stdout) ? resolve(false) : resolve(true);
-    });
-  });
+      regex.test(stdout) ? resolve(false) : resolve(true)
+    })
+  })
 }
 
 /**
@@ -76,7 +76,7 @@ function checkIfRepositoryIsAClone() {
   return new Promise((resolve, reject) => {
     exec('git remote -v', (err, stdout) => {
       if (err) {
-        reject(new Error(err));
+        reject(new Error(err))
       }
 
       const isClonedRepo = stdout
@@ -84,11 +84,11 @@ function checkIfRepositoryIsAClone() {
         .map(line => line.trim())
         .filter(line => line.startsWith('origin'))
         .filter(line => /react-boilerplate\/react-boilerplate-typescript\.git/.test(line))
-        .length;
+        .length
 
-      resolve(!!isClonedRepo);
-    });
-  });
+      resolve(!!isClonedRepo)
+    })
+  })
 }
 
 /**
@@ -98,12 +98,12 @@ function checkIfRepositoryIsAClone() {
 function removeGitRepository() {
   return new Promise((resolve, reject) => {
     try {
-      shell.rm('-rf', '.git/');
-      resolve();
+      shell.rm('-rf', '.git/')
+      resolve()
     } catch (err) {
-      reject(err);
+      reject(err)
     }
-  });
+  })
 }
 
 module.exports = {
@@ -113,4 +113,4 @@ module.exports = {
   hasGitRepository,
   checkIfRepositoryIsAClone,
   removeGitRepository,
-};
+}

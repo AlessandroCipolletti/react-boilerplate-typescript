@@ -4,9 +4,9 @@
 
 /* eslint strict: ["off"] */
 
-'use strict';
+'use strict'
 
-const componentExists = require('../utils/componentExists');
+const componentExists = require('../utils/componentExists')
 
 module.exports = {
   description: 'Add an unconnected component',
@@ -20,10 +20,10 @@ module.exports = {
         if (/.+/.test(value)) {
           return componentExists(value)
             ? 'A component or container with this name already exists'
-            : true;
+            : true
         }
 
-        return 'The name is required';
+        return 'The name is required'
       },
     },
     {
@@ -60,7 +60,7 @@ module.exports = {
         templateFile: './component/index.tsx.hbs',
         abortOnFail: true,
       }
-    ];
+    ]
 
     // If they want tests
     if (data.wantTests) {
@@ -69,7 +69,7 @@ module.exports = {
         path: '../../app/components/{{properCase name}}/tests/index.test.tsx',
         templateFile: './component/test.tsx.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     // If they want a i18n messages file
@@ -79,7 +79,7 @@ module.exports = {
         path: '../../app/components/{{properCase name}}/messages.ts',
         templateFile: './component/messages.ts.hbs',
         abortOnFail: true,
-      });
+      })
     }
 
     // If want Loadable.js to load the component asynchronously
@@ -89,15 +89,15 @@ module.exports = {
         path: '../../app/components/{{properCase name}}/Loadable.ts',
         templateFile: './component/loadable.ts.hbs',
         abortOnFail: true,
-      });
+      })
     }
     // If want Loadable.js to load the component asynchronously
   
     actions.push({
       type: 'prettify',
       path: '/components/',
-    });
+    })
 
-    return actions;
+    return actions
   },
-};
+}

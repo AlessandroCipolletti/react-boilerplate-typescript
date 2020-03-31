@@ -13,6 +13,21 @@ module.exports = {
     'babel-plugin-styled-components',
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
+    [
+      'module-resolver',
+      {
+        root: ['./app'],
+        alias: {
+          app: './app/',
+          common: './app/common/',
+          containers: './app/containers/',
+          pages: './app/pages/',
+          images: './app/medias/images/',
+          fonts: './app/medias/fonts/',
+          utils: './app/utils',
+        },
+      },
+    ],
   ],
   env: {
     production: {
@@ -31,4 +46,4 @@ module.exports = {
       ],
     },
   },
-};
+}

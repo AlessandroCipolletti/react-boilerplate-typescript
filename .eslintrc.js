@@ -1,9 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
 const prettierOptions = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'),
-);
+)
 
 module.exports = {
   parser: '@typescript-eslint/parser',
@@ -37,7 +37,7 @@ module.exports = {
   },
   rules: {
     'jsx-no-lambda': 0,
-    semi: [2, 'always'],
+    semi: 0,
     '@typescript-eslint/interface-name-prefix': 0,
     '@typescript-eslint/no-empty-interface': 0,
     'object-shorthand': [0, 'never'],
@@ -128,11 +128,15 @@ module.exports = {
       webpack: {
         config: './internals/webpack/webpack.prod.babel.js',
       },
+
+
+
       typescript: {
+
         alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
         directory: './tsconfig.json',
       },
     },
     'import/ignore': ['types'], // Weirdly eslint cannot resolve exports in types folder (try removing this later)
   },
-};
+}
