@@ -10,7 +10,7 @@ import { History } from 'history'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import createReducer from './reducers'
-import { InjectedStore, ApplicationRootState } from 'types'
+import { InjectedStore, ApplicationRootState } from 'common/types'
 
 export default function configureStore(
   initialState: ApplicationRootState | {} = {},
@@ -33,7 +33,7 @@ export default function configureStore(
     }),
   ]
 
-  let enhancer
+  let enhancer: any
   // If Redux Dev Tools and Saga Dev Tools Extensions are installed, enable them
   /* istanbul ignore next */
   if (process.env.NODE_ENV !== 'production' && typeof window === 'object') {

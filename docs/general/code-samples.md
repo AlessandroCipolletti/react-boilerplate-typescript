@@ -65,7 +65,7 @@ export const changeUsername = (name: string) =>
 ```typescript
 import { createSelector } from 'reselect'
 import { initialState } from './reducer'
-import { ApplicationRootState } from 'types'
+import { ApplicationRootState } from 'common/types'
 
 // state is your applications root state.
 const selectHome = (state: ApplicationRootState) => {

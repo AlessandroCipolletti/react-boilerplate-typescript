@@ -68,7 +68,7 @@ if (module.hot) {
   // Hot reloadable translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
-  module.hot.accept(['./i18n'], () => {
+  module.hot.accept(['./utils/i18n'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE)
     render(translationMessages)
   })
