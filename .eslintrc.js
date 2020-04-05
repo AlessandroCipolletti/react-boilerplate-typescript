@@ -38,6 +38,8 @@ module.exports = {
   rules: {
     'jsx-no-lambda': 0,
     semi: 0,
+    'array-element-newline': ["error", "consistent"],
+    'no-bitwise': 0,
     '@typescript-eslint/interface-name-prefix': 0,
     '@typescript-eslint/no-empty-interface': 0,
     'object-shorthand': [0, 'never'],
@@ -60,7 +62,7 @@ module.exports = {
     'jsx-alignment': 0,
     'jsx-wrap-multiline': 0,
     '@typescript-eslint/camelcase': 0,
-    'prettier/prettier': ['error', prettierOptions],
+    'prettier/prettier': ['warn', prettierOptions],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,
     'import/order': 0,
