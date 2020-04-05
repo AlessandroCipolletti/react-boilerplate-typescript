@@ -56,17 +56,23 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../app/components/{{properCase name}}/index.tsx',
+        path: '../../app/common/components/{{properCase name}}/index.tsx',
         templateFile: './component/index.tsx.hbs',
         abortOnFail: true,
-      }
+      },
+      {
+        type: 'add',
+        path: '../../app/common/components/{{properCase name}}/{{properCase name}}.tsx',
+        templateFile: './component/component.tsx.hbs',
+        abortOnFail: true,
+      },
     ]
 
     // If they want tests
     if (data.wantTests) {
       actions.push({
         type: 'add',
-        path: '../../app/components/{{properCase name}}/tests/index.test.tsx',
+        path: '../../app/common/components/{{properCase name}}/tests/{{properCase name}}.test.tsx',
         templateFile: './component/test.tsx.hbs',
         abortOnFail: true,
       })
@@ -76,7 +82,7 @@ module.exports = {
     if (data.wantMessages) {
       actions.push({
         type: 'add',
-        path: '../../app/components/{{properCase name}}/messages.ts',
+        path: '../../app/common/components/{{properCase name}}/messages.ts',
         templateFile: './component/messages.ts.hbs',
         abortOnFail: true,
       })
@@ -86,13 +92,13 @@ module.exports = {
     if (data.wantLoadable) {
       actions.push({
         type: 'add',
-        path: '../../app/components/{{properCase name}}/Loadable.ts',
+        path: '../../app/common/components/{{properCase name}}/Loadable.ts',
         templateFile: './component/loadable.ts.hbs',
         abortOnFail: true,
       })
     }
     // If want Loadable.js to load the component asynchronously
-  
+
     actions.push({
       type: 'prettify',
       path: '/components/',
