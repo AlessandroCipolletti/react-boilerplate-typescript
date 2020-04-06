@@ -1,6 +1,11 @@
 import styled from 'utils/styled-components'
 import Theme from 'common/Theme'
 
+export const Wrapper = styled.div`
+  width: 100%;
+  text-align: center;
+`
+
 export const PageSubtitle = styled.h2`
   font-size: ${Theme.fontSizing.size6};
   color: ${Theme.palette.gray(4)};

@@ -9,6 +9,18 @@ export default defineMessages({
   },
   initialInstractions: {
     id: `${scope}.initial_instractions`,
-    defaultMessage: 'To start the test please enter your email address below and press “start”',
+    defaultMessage: 'To start the test please enter your informations below and press “start”',
+  },
+  email: {
+    id: `${scope}.email`,
+    defaultMessage: 'Email',
+  },
+  name: {
+    id: `${scope}.name`,
+    defaultMessage: 'Name',
+  },
+  surname: {
+    id: `${scope}.surname`,
+    defaultMessage: 'Surname',
   },
 })

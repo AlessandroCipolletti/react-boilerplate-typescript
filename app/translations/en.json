@@ -1,7 +1,13 @@
 {
   "app.Pages.page_title": "Pitchy - Functionality Test",
   "app.Pages.title": "Functionality Test",
+
   "app.HomePage.page_subtitle": "This test will assert that your experience using Pitchy will be optimal",
+  "app.HomePage.initialInstractions": "To start the test please enter your informations below and press start",
+  "app.HomePage.email": "Email",
+  "app.HomePage.name": "Name",
+  "app.HomePage.Surname": "Surname",
+
   "app.Page.LocaleToggle.en": "en",
   "app.Page.LocaleToggle.fr": "fr"
 }
