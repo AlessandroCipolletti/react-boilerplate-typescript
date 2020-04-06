@@ -25,4 +25,5 @@ const Input = styled.input`
   color: ${Theme.palette.gray(8)};
   cursor: pointer;
   border: none;
+  font-size: ${Theme.fontSizing.size5};
 `

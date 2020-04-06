@@ -9,6 +9,14 @@
   "app.HomePage.lastname": "Lastname",
   "app.HomePage.start": "Start",
 
+  "app.TestPage.page_subtitle": "Your test is in progress",
+  "app.TestPage.environment_label": "Environment performances",
+  "app.TestPage.network_security_label": "Network security",
+  "app.TestPage.bandwidth_label": "Connection speed",
+  "app.TestPage.html5_support_label": "HTML5 support",
+  "app.TestPage.loading": "Loading...",
+  "app.TestPage.done": "Done",
+
   "app.Page.LocaleToggle.en": "en",
   "app.Page.LocaleToggle.fr": "fr"
 }

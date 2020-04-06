@@ -21,15 +21,17 @@ import {
 import messages from './messages'
 
 import Page from 'containers/Page'
+import FormEvent from 'common/types/FormEvent'
 import InputText from 'common/components/InputText'
 import Submit from './components/Submit'
-import { Wrapper, PageSubtitle, PageMessage, Form } from './styled'
+import { PageSubtitle } from 'common/styled/PageSubtitle'
+import { PageMessage, Form } from './styled'
 
 interface Props {
   intl: any
-  setUserEmail(): any
-  setUserFirstname(): any
-  setUserLastname(): any
+  setUserEmail(email: string): any
+  setUserFirstname(firstname: string): any
+  setUserLastname(lastname: string): any
 }
 
 const HomePage = function(
@@ -43,43 +45,42 @@ const HomePage = function(
     console.table({email, firstname, lastname})
   }, [email, firstname, lastname])
 
-  const a = (e) => {
+
+  const a = (e: FormEvent) => {
     e.preventDefault()
-    console.log(e)
   }
 
   return (
     <Page>
-      <Wrapper>
-        <PageSubtitle>{intl.formatMessage(messages.pageSubtitle)}</PageSubtitle>
-        <PageMessage>{intl.formatMessage(messages.initialInstractions)}</PageMessage>
+      <PageSubtitle>{intl.formatMessage(messages.pageSubtitle)}</PageSubtitle>
+      <PageMessage>{intl.formatMessage(messages.initialInstractions)}</PageMessage>
 
-        <Form onSubmit={a}>
-          <InputText
-            type="email"
-            name="email"
-            placeholder={intl.formatMessage(messages.email)}
-            onChange={setUserEmail}
-          />
-          <InputText
-            type="text"
-            name="firstname"
-            placeholder={intl.formatMessage(messages.firstname)}
-            onChange={setUserFirstname}
-          />
-          <InputText
-            type="text"
-            name="lastname"
-            placeholder={intl.formatMessage(messages.lastname)}
-            onChange={setUserLastname}
-          />
-          <br />
-          <br />
-          <br />
-          <Submit />
-        </Form>
-
-      </Wrapper>
+      <Form onSubmit={a} method="post">
+        <InputText
+          type="email"
+          name="email"
+          placeholder={intl.formatMessage(messages.email)}
+          onChange={setUserEmail}
+        />
+        <br />
+        <InputText
+          type="text"
+          name="firstname"
+          placeholder={intl.formatMessage(messages.firstname)}
+          onChange={setUserFirstname}
+        />
+        <br />
+        <InputText
+          type="text"
+          name="lastname"
+          placeholder={intl.formatMessage(messages.lastname)}
+          onChange={setUserLastname}
+        />
+        <br />
+        <br />
+        <br />
+        <Submit />
+      </Form>
     </Page>
   )
 }

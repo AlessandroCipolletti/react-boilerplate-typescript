@@ -40,6 +40,7 @@ module.exports = {
     semi: 0,
     'array-element-newline': ["error", "consistent"],
     'no-bitwise': 0,
+    'no-plusplus': 0,
     '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/interface-name-prefix': 0,
     '@typescript-eslint/no-empty-interface': 0,

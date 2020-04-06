@@ -33,5 +33,8 @@ export const Title = styled.h1`
 `
 
 export const Content = styled.div`
-  width: 100%;
+  width: ${Theme.spacing.size19};
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
 `
