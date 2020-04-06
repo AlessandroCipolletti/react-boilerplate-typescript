@@ -32,5 +32,7 @@ export default function LocaleToggle() {
 }
 
 const Wrapper = styled.div`
-  padding: 2px
+  padding: 2px;
+  float: right;
+  display: inline-block;
 `

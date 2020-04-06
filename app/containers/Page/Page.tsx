@@ -1,25 +1,36 @@
-import React from 'react'
+import React, { Children, ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { FormattedMessage } from 'react-intl'
+import { injectIntl } from 'react-intl'
 
+import logoImg from 'medias/images/logo.png'
+import LocaleToggle from './components/LocaleToggle'
+
+import { Wrapper, Logo, Title, Content } from './styled'
 import messages from './messages'
 
 interface Props {
-  action(): any
+  intl: any
+  children?: ReactNode;
 }
 
-const Page = function (props: Props) {
-  console.log(props)
-
+const Page = function ({ intl, children }: Props) {
   return (
-    <>
+    <Wrapper>
       <Helmet>
-        <title>Page</title>
+        <title>{intl.formatMessage(messages.pageTitle)}</title>
         <meta name="description" content="Description of Page" />
       </Helmet>
-      <FormattedMessage {...messages.header} />
-    </>
+
+      <LocaleToggle />
+      <Logo src={logoImg} />
+      <Title>{intl.formatMessage(messages.title)}</Title>
+
+      <Content>
+        {Children.toArray(children)}
+      </Content>
+
+    </Wrapper>
   )
 }
 
-export default Page
+export default injectIntl(Page)

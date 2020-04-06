@@ -1,4 +1,7 @@
 {
+  "app.Pages.page_title": "Pitchy - Functionality Test",
+  "app.Pages.title": "Functionality Test",
+  "app.HomePage.page_subtitle": "This test will assert that your experience using Pitchy will be optimal",
   "app.Page.LocaleToggle.en": "en",
   "app.Page.LocaleToggle.fr": "fr"
 }
