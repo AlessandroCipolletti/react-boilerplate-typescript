@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 import { ActionTypes } from './constants'
 import { startTestAction, saveTestResultAction } from './actions'
 
@@ -7,7 +7,7 @@ export function* launchTest(action: ReturnType<typeof startTestAction>) {
 
   try {
     const test = require(`./tests/${testName}.js`).default // eslint-disable-line
-    const result = test()
+    const result = yield call(test)
     yield put(saveTestResultAction(testName, {
       status: 'success',
       data: result,
