@@ -82,7 +82,6 @@ if (!(window as any).Intl) {
     .then(() =>
       Promise.all([
         import('intl/locale-data/jsonp/en.js'),
-        import('intl/locale-data/jsonp/de.js'),
       ]),
     )
     .then(() => render(translationMessages))

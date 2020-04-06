@@ -1,1 +1,4 @@
-[]
+{
+  "app.Page.LocaleToggle.en": "en",
+  "app.Page.LocaleToggle.fr": "fr"
+}
