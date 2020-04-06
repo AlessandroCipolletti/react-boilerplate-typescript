@@ -1,48 +1,70 @@
-/**
- *
- * Tests for {{ properCase name }}
- *
- * @see https://github.com/react-boilerplate/react-boilerplate/tree/master/docs/testing
- *
- */
-
 import React from 'react'
+import { compose } from 'redux'
+import { Provider } from 'react-redux'
+import { createMemoryHistory } from 'history'
 import { render } from '@testing-library/react'
 {{#if wantMessages}}
 import { IntlProvider } from 'react-intl'
 {{/if}}
-import { Provider } from 'react-redux'
-import history from 'utils/history'
 
-import {{ properCase name }} from '../index'
+// Import de Theme Provider
+import { ThemeProvider } from 'styled-components'
+import Theme from 'common/Theme'
+
+import configureStore from 'utils/configureStore'
 {{#if wantMessages}}
 import { DEFAULT_LOCALE } from 'utils/locales'
 {{/if}}
-import configureStore from 'utils/configureStore'
-describe('<{{ properCase name }} />', () => {
-  let store
 
-  beforeEach(() => {
-    store = configureStore({}, history)
-  })
+import {{ properCase name }}, { withConnect } from '../{{ properCase name }}'
+
+describe('<{{ properCase name }} />', () => {
+  const history = createMemoryHistory()
+  const store = configureStore({}, history)
+
+  const ComponentWithCompose = compose(
+    withConnect,
+  )({{ properCase name }})
+
+  const renderComponent = (props = {}) => (
+    render(
+{{#if wantActionsAndReducer}}
+{{#if wantMessages}}
+      <IntlProvider locale={DEFAULT_LOCALE}>
+        <Provider store={store}>
+          <ThemeProvider theme={Theme}>
+            <ComponentWithCompose {...props} />
+          </ThemeProvider>
+        </Provider>
+      </IntlProvider>,
+{{else}}
+      <Provider store={store}>
+        <ThemeProvider theme={Theme}>
+          <ComponentWithCompose {...props} />
+        </ThemeProvider>
+      </Provider>,
+{{/if}}
+{{else}}
+{{#if wantMessages}}
+      <IntlProvider locale={DEFAULT_LOCALE}>
+        <ThemeProvider theme={Theme}>
+          <ComponentWithCompose {...props} />
+        </ThemeProvider>
+      </IntlProvider>,
+{{else}}
+      <ThemeProvider theme={Theme}>
+        <ComponentWithCompose {...props} />
+      </ThemeProvider>,
+{{/if}}
+{{/if}}
+    )
+  )
 
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error')
-{{#if wantMessages}}
-    render(
-      <Provider store={store}>
-        <IntlProvider locale={DEFAULT_LOCALE}>
-          <{{ properCase name }} />
-        </IntlProvider>
-      </Provider>,
-    )
-{{else}}
-    render(
-      <Provider store={store}>
-        <{{ properCase name }} />
-      </Provider>,
-    )
-{{/if}}
+
+    renderComponent()
+
     expect(spy).not.toHaveBeenCalled()
   })
 
@@ -56,25 +78,10 @@ describe('<{{ properCase name }} />', () => {
    * @see {@link https://jestjs.io/docs/en/api#testskipname-fn}
    */
   it.skip('Should render and match the snapshot', () => {
-{{#if wantMessages}}
     const {
       container: { firstChild },
-    } = render(
-      <Provider store={store}>
-        <IntlProvider locale={DEFAULT_LOCALE}>
-          <{{ properCase name }} />
-        </IntlProvider>
-      </Provider>,
-    )
-{{else}}
-    const {
-      container: { firstChild },
-    } = render(
-      <Provider store={store}>
-        <{{ properCase name }} />
-      </Provider>,
-    )
-{{/if}}
+    } = renderComponent()
+
     expect(firstChild).toMatchSnapshot()
   })
 })

@@ -59,12 +59,12 @@ module.exports = {
       default: true,
       message: 'Do you want to have types.ts file?',
     },
-    {
-      type: 'confirm',
-      name: 'wantTests',
-      default: true,
-      message: 'Do you want to have tests',
-    },
+    // {
+    //   type: 'confirm',
+    //   name: 'wantTests',
+    //   default: true,
+    //   message: 'Do you want to have tests',
+    // },
   ],
   actions: data => {
     // Generate index.ts and index.test.tsx
@@ -75,13 +75,19 @@ module.exports = {
         templateFile: './container/index.tsx.hbs',
         abortOnFail: true,
       },
+      {
+        type: 'add',
+        path: '../../app/containers/{{properCase name}}/{{properCase name}}.tsx',
+        templateFile: './container/container.tsx.hbs',
+        abortOnFail: true,
+      },
     ]
 
     // If component wants tests
     if (data.wantTests) {
       actions.push({
         type: 'add',
-        path: '../../app/containers/{{properCase name}}/tests/index.test.tsx',
+        path: '../../app/containers/{{properCase name}}/tests/{{properCase name}}.test.tsx',
         templateFile: './container/test.tsx.hbs',
         abortOnFail: true,
       })
@@ -186,14 +192,14 @@ module.exports = {
       })
       actions.push({
         type: 'modify',
-        path: '../../app/types/index.ts',
+        path: '../../app/common/types/index.ts',
         pattern: new RegExp(/.*\/\/.*\[IMPORT NEW CONTAINERSTATE ABOVE\].+\n/),
         templateFile: './container/importContainerState.hbs',
         abortOnFail: true,
       })
       actions.push({
         type: 'modify',
-        path: '../../app/types/index.ts',
+        path: '../../app/common/types/index.ts',
         pattern: new RegExp(/.*\/\/.*\[INSERT NEW REDUCER KEY ABOVE\].+\n/),
         templateFile: './container/appendApplicationRootState.hbs',
         abortOnFail: true,
