@@ -23,3 +23,7 @@ export const PageMessage = styled.p`
   font-family: sans-serif;
   font-weight: lighter;
 `
+
+export const Form = styled.form`
+  margin-bottom: ${Theme.spacing.size8};
+`

@@ -12,10 +12,10 @@ export const Input = styled.input`
   &:focus {
     outline-width: 0;
   }
-  &:invalid:not(:placeholder-shown):not(:focus) {
-    border-color: ${Theme.palette.red(2)};
-  }
   &:valid {
     border-color: ${Theme.palette.green(3)};
+  }
+  &:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: ${Theme.palette.red(2)};
   }
 `

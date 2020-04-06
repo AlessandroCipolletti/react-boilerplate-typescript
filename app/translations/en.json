@@ -3,10 +3,11 @@
   "app.Pages.title": "Functionality Test",
 
   "app.HomePage.page_subtitle": "This test will assert that your experience using Pitchy will be optimal",
-  "app.HomePage.initialInstractions": "To start the test please enter your informations below and press start",
+  "app.HomePage.initialInstractions": "To start the test please enter your contact informations below and press \"start\"",
   "app.HomePage.email": "Email",
-  "app.HomePage.name": "Name",
-  "app.HomePage.Surname": "Surname",
+  "app.HomePage.fisrtname": "Firstame",
+  "app.HomePage.lastname": "Lastname",
+  "app.HomePage.start": "Start",
 
   "app.Page.LocaleToggle.en": "en",
   "app.Page.LocaleToggle.fr": "fr"

@@ -7,20 +7,19 @@ interface Props {
   type: 'text' | 'email'
   name: string
   placeholder: string
-  required?: boolean
   onChange(value?: string): void
+  required?: boolean
 }
 
-const InputText = function({ type, name, placeholder, required = true, onChange }: Props) {
-  const [value, setValue] = React.useState('')
+const InputText = function({ type, name, placeholder, onChange, required = true }: Props) {
+  const [currentValue, setCurrentValue] = React.useState('')
 
-  const callOnChange = debounce(onChange, 200)
-
+  const callOnChange = debounce(onChange, 300)
   const handleOnChange = React.useCallback((e) => {
     const v = e.target.value
-    setValue(v)
+    setCurrentValue(v)
     callOnChange(v)
-  }, [setValue])
+  }, [setCurrentValue])
 
   return (
     <Input
@@ -28,7 +27,7 @@ const InputText = function({ type, name, placeholder, required = true, onChange 
       name={name}
       placeholder={placeholder}
       required={required}
-      value={value}
+      value={currentValue}
       onChange={handleOnChange}
     />
   )
