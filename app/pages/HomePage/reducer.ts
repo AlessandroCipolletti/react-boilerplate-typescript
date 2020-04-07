@@ -2,9 +2,9 @@ import ActionTypes from './constants'
 import { ContainerState, ContainerActions } from './types'
 
 export const initialState: ContainerState = {
-  email: 'ciao@ciao.it',
-  firstname: 'ciao',
-  lastname: 'ciao',
+  email: '',
+  firstname: '',
+  lastname: '',
 }
 
 function homeReducer(

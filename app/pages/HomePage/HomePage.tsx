@@ -1,17 +1,12 @@
 import React from 'react'
+import { push } from 'connected-react-router'
 import { injectIntl } from 'react-intl'
 import { Dispatch, compose } from 'redux'
-import { useSelector, connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import { connect , useDispatch } from 'react-redux'
 import { useInjectReducer } from 'redux-injectors'
 
-import reducer from './reducer'
-import {
-  makeSelectEmail,
-  makeSelectFirstname,
-  makeSelectLastname,
-} from './selectors'
 
+import reducer from './reducer'
 import {
   setUserEmailAction,
   setUserFirstnameAction,
@@ -27,6 +22,7 @@ import Submit from './components/Submit'
 import { PageSubtitle } from 'common/styled/PageSubtitle'
 import { PageMessage, Form } from './styled'
 
+
 interface Props {
   intl: any
   setUserEmail(email: string): any
@@ -38,24 +34,19 @@ const HomePage = function(
   { intl, setUserEmail, setUserFirstname, setUserLastname }: Props
 ) {
   useInjectReducer({ key: 'home', reducer: reducer })
+  const dispatch = useDispatch()
 
-  const { email, firstname, lastname } = useSelector(stateSelector)
-
-  React.useEffect(() => {
-    console.table({email, firstname, lastname})
-  }, [email, firstname, lastname])
-
-
-  const a = (e: FormEvent) => {
+  const goToTests = React.useCallback((e: FormEvent) => {
     e.preventDefault()
-  }
+    dispatch(push('/tests'))
+  }, [])
 
   return (
     <Page>
       <PageSubtitle>{intl.formatMessage(messages.pageSubtitle)}</PageSubtitle>
       <PageMessage>{intl.formatMessage(messages.initialInstractions)}</PageMessage>
 
-      <Form onSubmit={a} method="post">
+      <Form onSubmit={goToTests} method="post">
         <InputText
           type="email"
           name="email"
@@ -84,12 +75,6 @@ const HomePage = function(
     </Page>
   )
 }
-
-const stateSelector = createStructuredSelector({
-  email: makeSelectEmail(),
-  firstname: makeSelectFirstname(),
-  lastname: makeSelectLastname(),
-})
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
