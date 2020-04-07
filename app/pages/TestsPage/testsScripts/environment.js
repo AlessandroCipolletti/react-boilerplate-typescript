@@ -78,7 +78,9 @@ const getScreen = () => {
   return {}
 }
 
-export default function() {
+export default async function() {
+  await ((ms) => new Promise(r => setTimeout(r, ms)))(Math.random() * 2000 + 2000)
+
   return {
     timestamp: Date.now(),
     os: getOs(),

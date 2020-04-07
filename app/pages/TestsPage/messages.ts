@@ -31,4 +31,12 @@ export default defineMessages({
     id: `${scope}.done`,
     defaultMessage: 'Done',
   },
+  thankYouLine1: {
+    id: `${scope}.thankyou_line_1`,
+    defaultMessage: 'Test is finished you can safely close this page',
+  },
+  thankYouLine2: {
+    id: `${scope}.thankyou_line_2`,
+    defaultMessage: 'Our CSM teams will contact you if any action is required on your side',
+  },
 })

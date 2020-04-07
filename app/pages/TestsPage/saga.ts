@@ -6,15 +6,13 @@ export function* launchTest(action: ReturnType<typeof startTestAction>) {
   const { testName } = action.payload
 
   try {
-    const test = require(`./tests/${testName}.js`).default // eslint-disable-line
+    const test = require(`./testsScripts/${testName}.js`).default // eslint-disable-line
     const result = yield call(test)
     yield put(saveTestResultAction(testName, {
       status: 'success',
       data: result,
     }))
-    console.log(result)
   } catch (err) {
-    console.log('dio')
     yield put(saveTestResultAction(testName, {
       status: 'error',
       data: {},

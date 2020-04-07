@@ -16,6 +16,8 @@
   "app.TestPage.html5_support_label": "HTML5 support",
   "app.TestPage.loading": "Loading...",
   "app.TestPage.done": "Done",
+  "app.TestPage.thankYouLine1": "Test is finished you can safely close this page",
+  "app.TestPage.thankYouLine2": "Our CSM teams will contact you if any action is required on your side",
 
   "app.Page.LocaleToggle.en": "en",
   "app.Page.LocaleToggle.fr": "fr"

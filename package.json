@@ -65,6 +65,7 @@
     "@types/lodash": "4.14.149",
     "babel-plugin-module-resolver": "4.0.0",
     "connected-react-router": "6.8.0",
+    "fast-speedtest-api": "0.3.2",
     "fontfaceobserver": "2.1.0",
     "history": "4.10.1",
     "hoist-non-react-statics": "3.3.0",
@@ -85,7 +86,8 @@
     "reselect": "4.0.0",
     "sanitize.css": "11.0.0",
     "styled-components": "4.3.2",
-    "typesafe-actions": "5.1.0"
+    "typesafe-actions": "5.1.0",
+    "web-pingjs": "1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",

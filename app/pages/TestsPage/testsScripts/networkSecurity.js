@@ -6,12 +6,11 @@ const getFetchPromise = async(url) => {
         status: 'success',
         err: false,
       }]
-    } 
+    }
     return [url, {
       status: 'error',
       err: `HTTP Status: ${response.status}`,
     }]
-    
   } catch(err) {
     return [url, {
       status: 'error',
@@ -21,6 +20,8 @@ const getFetchPromise = async(url) => {
 }
 
 export default async function() {
+  await ((ms) => new Promise(r => setTimeout(r, ms)))(Math.random() * 2000 + 2000)
+
   const urlsToTest = [
     'https://s3-eu-west-1.amazonaws.com/pitchy-v3/assets/icons/icone_atelier.png',
     'https://pitchy-v3.s3-eu-west-1.amazonaws.com/assets/icons/icone_atelier.png',
