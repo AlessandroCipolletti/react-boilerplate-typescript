@@ -13,3 +13,5 @@ export const makeSelectTests = () =>
   createSelector(selectTestsDomain, testsState => testsState)
 
 export const makeSelectResults = () => createSelector(selectTestsDomain, resultSelector)
+
+export const makeSelectPageState = () => createSelector(selectTestsDomain, testsState => testsState.state)

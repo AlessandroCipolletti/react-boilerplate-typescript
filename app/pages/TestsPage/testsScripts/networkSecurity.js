@@ -20,7 +20,7 @@ const getFetchPromise = async(url) => {
 }
 
 export default async function() {
-  await ((ms) => new Promise(r => setTimeout(r, ms)))(Math.random() * 2000 + 2000)
+  await ((ms) => new Promise(r => setTimeout(r, ms)))(Math.random() * 1000 + 2000)
 
   const urlsToTest = [
     'https://s3-eu-west-1.amazonaws.com/pitchy-v3/assets/icons/icone_atelier.png',

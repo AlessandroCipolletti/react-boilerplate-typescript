@@ -1,7 +1,8 @@
-import { ActionTypes, TestStates} from './constants'
+import { ActionTypes, TestStates, PageStates } from './constants'
 import { ContainerState, ContainerActions } from './types'
 
 export const initialState: ContainerState = {
+  state: PageStates.WAITING,
   environment: {
     state: TestStates.WAITING,
     result: {},
@@ -38,10 +39,29 @@ function homeReducer(
     case ActionTypes.START_TEST:
       return {
         ...state,
+        state: PageStates.IN_PROGRESS,
         [action.payload.testName]: {
           state: TestStates.IN_PROGRESS,
           result: {},
         }
+      }
+
+    case ActionTypes.REQUEST_SEND_RESULTS:
+      return {
+        ...state,
+        state: PageStates.SAVING,
+      }
+
+    case ActionTypes.SEND_RESULTS_KO:
+      return {
+        ...state,
+        state: PageStates.SAVEKO,
+      }
+
+    case ActionTypes.SEND_RESULTS_OK:
+      return {
+        ...state,
+        state: PageStates.SAVEOK,
       }
 
     default:

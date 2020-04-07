@@ -7,31 +7,29 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 
 import reducer from './reducer'
 import saga from './saga'
-import { makeSelectTests, makeSelectResults } from './selectors'
-import { TestStates } from './constants'
-import { startTestAction, sendResultsAction } from './actions'
+import { makeSelectTests, makeSelectResults, makeSelectPageState } from './selectors'
+import { TestStates, PageStates } from './constants'
+import { startTestAction, requestSendResultsAction } from './actions'
 
 import messages from './messages'
 
 import Page from 'containers/Page'
 import { PageSubtitle } from 'common/styled/PageSubtitle'
-import TestPreview from './components/TestPreview'
-import ThankYouMessage from './components/ThankYouMessage'
+import { TestPreview, ThankYouMessage, Saving, SaveError } from './components'
 
 interface Props {
   intl: any
   startTest(testName: string): any
-  sendResults(results: object): boolean
+  requestSendResults(results: object): boolean
 }
 
 const TestsPage = function(
-  { intl, startTest, sendResults }: Props
+  { intl, startTest, requestSendResults }: Props
 ) {
   useInjectReducer({ key: 'tests', reducer })
   useInjectSaga({ key: 'tests', saga })
 
-  const { tests, results } = useSelector(stateSelector)
-  const [testsAreDone, setTestsAreDone] = React.useState(false)
+  const { tests, results, pageState } = useSelector(stateSelector)
 
   // hook to launch tests one after the other
   React.useEffect(() => {
@@ -45,19 +43,18 @@ const TestsPage = function(
       if (tests[name].state === TestStates.IN_PROGRESS) {
         break
       }
-
     }
   }, [tests])
 
   // hoot to send and save results if all tests are done
   React.useEffect(() => {
     if (
+      tests.state === PageStates.IN_PROGRESS &&
       tests.bandwidth.state === TestStates.DONE &&
       tests.environment.state === TestStates.DONE &&
       tests.networkSecurity.state === TestStates.DONE
     ) {
-      sendResults(results)
-      setTestsAreDone(true)
+      requestSendResults(results)
     }
   }, [tests, results])
 
@@ -76,7 +73,9 @@ const TestsPage = function(
         name="bandwidth"
         state={tests.bandwidth.state}
       />
-      {testsAreDone && <ThankYouMessage />}
+      {pageState === PageStates.SAVING && <Saving />}
+      {pageState === PageStates.SAVEOK && <ThankYouMessage />}
+      {pageState === PageStates.SAVEKO && <SaveError />}
     </Page>
   )
 }
@@ -84,12 +83,13 @@ const TestsPage = function(
 const stateSelector = createStructuredSelector({
   tests: makeSelectTests(),
   results: makeSelectResults(),
+  pageState: makeSelectPageState(),
 })
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
     startTest: function(testName: string): void { dispatch(startTestAction(testName)) },
-    sendResults: function(results: object): void { dispatch(sendResultsAction(results)) },
+    requestSendResults: function(results: object): void { dispatch(requestSendResultsAction(results)) },
   }
 }
 

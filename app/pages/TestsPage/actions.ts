@@ -7,4 +7,8 @@ export const startTestAction = (testName: string) => action(ActionTypes.START_TE
 
 export const saveTestResultAction = (testName: string, result: object) => action(ActionTypes.SAVE_TEST_RESULT, { testName, result })
 
-export const sendResultsAction = (results: object) => action(ActionTypes.SEND_RESULTS, { results })
+export const requestSendResultsAction = (results: object) => action(ActionTypes.REQUEST_SEND_RESULTS, { results })
+
+export const sendResultsOkAction = () => action(ActionTypes.SEND_RESULTS_OK)
+
+export const sendResultsKoAction = () => action(ActionTypes.SEND_RESULTS_KO)

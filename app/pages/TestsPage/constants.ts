@@ -1,7 +1,9 @@
 export enum ActionTypes {
   START_TEST = 'app/TestsPage/START_TEST',
   SAVE_TEST_RESULT = 'app/TestsPage/SAVE_TEST_RESULT',
-  SEND_RESULTS = 'app/TestsPage/SEND_RESULTS',
+  REQUEST_SEND_RESULTS = 'app/TestsPage/REQUEST_SEND_RESULTS',
+  SEND_RESULTS_OK = 'app/TestsPage/SEND_RESULTS_OK',
+  SEND_RESULTS_KO = 'app/TestsPage/SEND_RESULTS_KO',
 }
 
 export enum TestStates {
@@ -15,4 +17,12 @@ export enum TestsTypes {
   'networkSecurity',
   'bandwidth',
   'html5Support',
+}
+
+export enum PageStates {
+  WAITING = 0,
+  IN_PROGRESS = 1,
+  SAVING = 2,
+  SAVEKO = 3,
+  SAVEOK = 4,
 }

@@ -39,4 +39,8 @@ export default defineMessages({
     id: `${scope}.thankyou_line_2`,
     defaultMessage: 'Our CSM teams will contact you if any action is required on your side',
   },
+  savingError: {
+    id: `${scope}.saving_error`,
+    defaultMessage: 'Ops... something went wrong saving data :( Please contact us',
+  },
 })

@@ -1,6 +1,8 @@
 {
-  "app.Pages.page_title": "Pitchy - Functionality Test",
-  "app.Pages.title": "Functionality Test",
+  "app.Page.page_title": "Pitchy - Functionality Test",
+  "app.Page.title": "Functionality Test",
+  "app.Page.LocaleToggle.en": "en",
+  "app.Page.LocaleToggle.fr": "fr",
 
   "app.HomePage.page_subtitle": "This test will assert that your experience using Pitchy will be optimal",
   "app.HomePage.initialInstractions": "To start the test please enter your contact informations below and press \"start\"",
@@ -9,16 +11,14 @@
   "app.HomePage.lastname": "Lastname",
   "app.HomePage.start": "Start",
 
-  "app.TestPage.page_subtitle": "Your test is in progress",
-  "app.TestPage.environment_label": "Environment performances",
-  "app.TestPage.network_security_label": "Network security",
-  "app.TestPage.bandwidth_label": "Connection speed",
-  "app.TestPage.html5_support_label": "HTML5 support",
-  "app.TestPage.loading": "Loading...",
-  "app.TestPage.done": "Done",
-  "app.TestPage.thankYouLine1": "Test is finished you can safely close this page",
-  "app.TestPage.thankYouLine2": "Our CSM teams will contact you if any action is required on your side",
-
-  "app.Page.LocaleToggle.en": "en",
-  "app.Page.LocaleToggle.fr": "fr"
+  "app.TestsPage.page_subtitle": "Your test is in progress",
+  "app.TestsPage.environment_label": "Environment performances",
+  "app.TestsPage.network_security_label": "Network security",
+  "app.TestsPage.bandwidth_label": "Connection speed",
+  "app.TestsPage.html5_support_label": "HTML5 support",
+  "app.TestsPage.loading": "Loading...",
+  "app.TestsPage.done": "Done",
+  "app.TestsPage.thankyou_line_1": "Test is finished you can safely close this page",
+  "app.TestsPage.thankyou_line_2": "Our CSM teams will contact you if any action is required on your side",
+  "app.TestsPage.saving_error": "Ops... something went wrong saving data :( Please contact us"
 }

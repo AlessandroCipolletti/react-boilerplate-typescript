@@ -1,9 +1,10 @@
 import { ActionType } from 'typesafe-actions'
 import * as actions from './actions'
-import { TestStates } from './constants'
+import { TestStates, PageStates } from './constants'
 
 /* --- STATE --- */
 interface TestsState {
+  state: PageStates.WAITING | PageStates.IN_PROGRESS | PageStates.SAVING | PageStates.SAVEKO | PageStates.SAVEOK
   environment: Test
   networkSecurity: Test
   bandwidth: Test
