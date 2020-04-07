@@ -11,6 +11,9 @@
   "app.HomePage.lastname": "Lastname",
   "app.HomePage.start": "Start",
 
+  "app.TermsPage.page_subtitle": "Terms and Conditions",
+  "app.TermsPage.back": "Back",
+
   "app.TestsPage.page_subtitle": "Your test is in progress",
   "app.TestsPage.environment_label": "Environment performances",
   "app.TestsPage.network_security_label": "Network security",

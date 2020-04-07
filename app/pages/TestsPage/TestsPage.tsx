@@ -14,7 +14,7 @@ import { startTestAction, requestSendResultsAction } from './actions'
 import messages from './messages'
 
 import Page from 'containers/Page'
-import { PageSubtitle } from 'common/styled/PageSubtitle'
+import { PageSubtitle } from 'common/styled/Page'
 import { TestPreview, ThankYouMessage, Saving, SaveError } from './components'
 
 interface Props {

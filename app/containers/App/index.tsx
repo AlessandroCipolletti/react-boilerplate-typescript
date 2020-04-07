@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import { hot } from 'react-hot-loader/root'
 
 import HomePage from 'pages/HomePage/'
+import TermsPage from 'pages/TermsPage/'
 import TestsPage from 'pages/TestsPage/'
 import NotFoundPage from 'containers/NotFoundPage/Loadable'
 
@@ -13,6 +14,7 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/terms" component={TermsPage} />
         <Route exact path="/tests" component={TestsPage} />
         <Route component={NotFoundPage} />
       </Switch>

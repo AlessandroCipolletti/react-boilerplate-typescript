@@ -2,9 +2,8 @@ import React from 'react'
 import { push } from 'connected-react-router'
 import { injectIntl } from 'react-intl'
 import { Dispatch, compose } from 'redux'
-import { connect , useDispatch } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { useInjectReducer } from 'redux-injectors'
-
 
 import reducer from './reducer'
 import {
@@ -19,9 +18,8 @@ import Page from 'containers/Page'
 import FormEvent from 'common/types/FormEvent'
 import InputText from 'common/components/InputText'
 import Submit from './components/Submit'
-import { PageSubtitle } from 'common/styled/PageSubtitle'
-import { PageMessage, Form } from './styled'
-
+import { PageSubtitle, PageMessage } from 'common/styled/Page'
+import { Form } from './styled'
 
 interface Props {
   intl: any

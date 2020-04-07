@@ -1,7 +1,7 @@
 import ping from 'web-pingjs'
 
 const getDownloadSpeed = async() => {
-  const FastSpeedtest = require('fast-speedtest-api')  // eslint-disable-line
+  const FastSpeedtest = require('fast-speedtest-api') // eslint-disable-line
 
   const speedtest = new FastSpeedtest({
     token: 'YXNkZmFzZGxmbnNkYWZoYXNkZmhrYWxm', // required

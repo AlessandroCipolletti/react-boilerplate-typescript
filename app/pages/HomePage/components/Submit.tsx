@@ -2,7 +2,7 @@ import React from 'react'
 import { injectIntl } from 'react-intl'
 
 import styled from 'utils/styled-components'
-import Theme from 'common/Theme'
+import { ButtonCss } from 'common/styled/Button'
 
 import messages from '../messages'
 
@@ -19,11 +19,5 @@ function Submit({ intl }: Props) {
 export default injectIntl(Submit)
 
 const Input = styled.input`
-  width: ${Theme.spacing.size10};
-  height: ${Theme.spacing.size7};
-  background-color: ${Theme.palette.primary(1)};
-  color: ${Theme.palette.gray(8)};
-  cursor: pointer;
-  border: none;
-  font-size: ${Theme.fontSizing.size5};
+  ${ButtonCss}
 `
