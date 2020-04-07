@@ -27,4 +27,12 @@ export default defineMessages({
     id: `${scope}.start`,
     defaultMessage: 'Start',
   },
+  accept: {
+    id: `${scope}.accept`,
+    defaultMessage: 'I agree to',
+  },
+  terms: {
+    id: `${scope}.terms`,
+    defaultMessage: 'terms and conditions',
+  },
 })

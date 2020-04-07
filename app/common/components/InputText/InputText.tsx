@@ -9,10 +9,11 @@ interface Props {
   placeholder: string
   onChange(value?: string): void
   required?: boolean
+  initialValue?: string
 }
 
-const InputText = function({ type, name, placeholder, onChange, required = true }: Props) {
-  const [currentValue, setCurrentValue] = React.useState('')
+const InputText = function({ type, name, placeholder, onChange, required = true, initialValue = '' }: Props) {
+  const [currentValue, setCurrentValue] = React.useState(initialValue)
 
   const callOnChange = debounce(onChange, 300)
   const handleOnChange = React.useCallback((e) => {

@@ -29,7 +29,6 @@ const TermsPage = function({ intl }: Props) {
   }, [])
 
   const terms = require(`./terms/${locale}.html`) // eslint-disable-line
-  console.log({terms})
 
   return (
     <Page>

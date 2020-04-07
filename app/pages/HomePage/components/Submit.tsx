@@ -8,11 +8,12 @@ import messages from '../messages'
 
 interface Props {
   intl: any
+  disabled: boolean
 }
 
-function Submit({ intl }: Props) {
+function Submit({ intl, disabled }: Props) {
   return (
-    <Input type="submit" value={intl.formatMessage(messages.start)} />
+    <Input disabled={disabled} type="submit" value={intl.formatMessage(messages.start)} />
   )
 }
 
@@ -20,4 +21,8 @@ export default injectIntl(Submit)
 
 const Input = styled.input`
   ${ButtonCss}
+  &:disabled {
+    cursor: auto;
+    opacity: 0.5;
+  }
 `
