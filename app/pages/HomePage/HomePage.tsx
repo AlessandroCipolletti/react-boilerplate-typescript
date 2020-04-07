@@ -13,11 +13,7 @@ import {
   setUserLastnameAction,
 } from './actions'
 
-import {
-  makeSelectEmail,
-  makeSelectFirstname,
-  makeSelectLastname,
-} from './selectors'
+import { makeSelectEmail, makeSelectFirstname, makeSelectLastname } from './selectors'
 
 import messages from './messages'
 
