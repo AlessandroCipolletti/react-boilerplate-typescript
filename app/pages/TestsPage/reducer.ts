@@ -15,10 +15,10 @@ export const initialState: ContainerState = {
     state: TestStates.WAITING,
     result: {},
   },
-  // html5Support: {
-  //   state: TestStates.WAITING,
-  //   result: {},
-  // },
+  html5Support: {
+    state: TestStates.WAITING,
+    result: {},
+  },
 }
 
 function homeReducer(

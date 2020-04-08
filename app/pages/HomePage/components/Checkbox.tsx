@@ -15,7 +15,8 @@ function Checkbox({ onChange }: Props) {
 export default Checkbox
 
 const Input = styled.input`
-  margin: 10px;
+  transform: scale3d(1.5, 1.5, 1);
+  margin: 10px 15px 10px 0px;
   vertical-align: bottom;
   cursor: pointer;
 `

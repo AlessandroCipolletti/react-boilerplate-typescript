@@ -8,7 +8,7 @@ interface TestsState {
   environment: Test
   networkSecurity: Test
   bandwidth: Test
-  // html5Support: Test
+  html5Support: Test
 }
 
 /* --- ACTIONS --- */

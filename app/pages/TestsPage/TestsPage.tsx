@@ -52,7 +52,8 @@ const TestsPage = function(
       tests.state === PageStates.IN_PROGRESS &&
       tests.bandwidth.state === TestStates.DONE &&
       tests.environment.state === TestStates.DONE &&
-      tests.networkSecurity.state === TestStates.DONE
+      tests.networkSecurity.state === TestStates.DONE &&
+      tests.html5Support.state === TestStates.DONE
     ) {
       requestSendResults(results)
     }
@@ -72,6 +73,10 @@ const TestsPage = function(
       <TestPreview
         name="bandwidth"
         state={tests.bandwidth.state}
+      />
+      <TestPreview
+        name="html5Support"
+        state={tests.html5Support.state}
       />
       {pageState === PageStates.SAVING && <Saving />}
       {pageState === PageStates.SAVEOK && <ThankYouMessage />}

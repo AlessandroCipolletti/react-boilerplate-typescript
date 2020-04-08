@@ -78,6 +78,17 @@ const getScreen = () => {
   return {}
 }
 
+const getStorageLimit = async() => {
+  try {
+    const data = await navigator.storage.estimate()
+    const gb = 1024 * 1024 * 1024
+
+    return (data.quota / gb).toFixed(2)
+  } catch (e) {
+    return false
+  }
+}
+
 export default async function() {
   await ((ms) => new Promise(r => setTimeout(r, ms)))(Math.random() * 1000 + 2000)
 
@@ -96,6 +107,7 @@ export default async function() {
       memory: navigator.deviceMemory,
       threads: navigator.hardwareConcurrency,
       gpu: getDeviceGPU(),
+      availableStorageEstimationGb: await getStorageLimit(), // number of GB (estimation)
     },
     connection: {
       effectiveType: navigator.connection.effectiveType,
